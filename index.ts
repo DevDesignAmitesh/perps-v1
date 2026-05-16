@@ -1,4 +1,5 @@
 import express from "express";
+import createOrder from "./routes/create-order";
 
 const app = express();
 app.use(express.json());
@@ -86,7 +87,7 @@ app.post("/signup", (req, res) => {})
 app.post("/signin", (req, res) => {})
 app.post("/onramp", (req, res) => {})
 app.post("/order", (req, res) => {})
-app.delete("/order", (req, res) => {})
+app.delete("/order", createOrder)
 app.get("/equity/available", (req, res) => {})
 app.get("/positions/open/:marketId", (req, res) => {});
 app.get("/positions/closed/:marketId", (req, res) => {});
