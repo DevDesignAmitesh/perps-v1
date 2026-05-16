@@ -7,7 +7,9 @@ export const createOrderSchema = z.object({
   price: z.number().optional(),
   qty: z.number().optional(),
   userId: z.string(),
-})
+});
+
+export type CreateOrderProps = z.infer<typeof createOrderSchema>
 
 export const zodErrorMessage = ({ error }: { error: ZodError }) => {
   return error.issues.map((er) => `${er.path.join(".")}: ${er.message}`)
