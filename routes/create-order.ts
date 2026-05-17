@@ -1,6 +1,6 @@
 import { type Response, type Request } from "express";
 import { createOrderSchema, zodErrorMessage } from "../validation";
-import orderRequestHandler from "../utils";
+import { orderRequestHandler } from "../utils";
 
 export default function createOrder(req: Request, res: Response) {
   const { data, success, error } = createOrderSchema.safeParse({
@@ -14,5 +14,5 @@ export default function createOrder(req: Request, res: Response) {
     return;
   }
 
-  const res = orderRequestHandler(data);
+  const orderResponse = orderRequestHandler(data);
 }
